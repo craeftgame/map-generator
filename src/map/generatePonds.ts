@@ -21,8 +21,6 @@ export function generatePonds(
                         en: CircleTypes
                     })] as unknown as CircleTypes;
 
-                    console.log(type);
-
                     drawCircle(
                         map,
                         x,

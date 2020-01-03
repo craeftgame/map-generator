@@ -1,13 +1,19 @@
 {
   "name": "@craeft/map-generator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Cräft! Map Generator",
+  "main": "./src/test.ts",
   "scripts": {
     "test": "ts-node ./src/test.ts",
-    "postinstall": "tsc -b ."
+    "postinstall": "tsc -b .",
+    "start": "tsc -b . --watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cräft",
+    "map",
+    "generator",
+    "typescript"
+  ],
+  "author": "Sebastian Gerske",
   "license": "MIT"
 }
