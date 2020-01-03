@@ -1,12 +1,13 @@
-import {printMap} from "./tools/printMap";
 import {generate} from "./map/generator";
 
-const map = generate();
-printMap(map);
-
+// const map = generate();
+// map.print();
 
 const map2 = generate({
-    width: 10,
-    height: 5,
+    width: 50,
+    height: 40,
+    pondMax: 10,
+    pondChance: 1,
+    pondMin: 10
 });
-printMap(map2);
+map2.print();

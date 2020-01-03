@@ -3,6 +3,8 @@ import {getRandomArrayItem} from "../tools/rand";
 import {TerrainTypes} from "../TerrainTypes";
 import {generatePonds} from "./generatePonds";
 import {generateTrees} from "./generateTrees";
+import Map from "./map";
+import {generateVoid} from "./generateVoid";
 
 export function generate(
     {
@@ -14,18 +16,19 @@ export function generate(
         pondMax = 3,
     } = {}
 ) {
-
-    const map: any[][] = [];
+    const map = new Map(width, height);
 
     generateBackdrop(
         map,
-        height,
-        width,
         getRandomArrayItem({
-            // add water here to have a water map
-            array: [TerrainTypes.Earth]
+            // todo: add water here to have a water map
+            array: [
+                TerrainTypes.Earth
+            ]
         })
     );
+
+    generateVoid(map);
 
     generatePonds(
         map,
@@ -38,6 +41,8 @@ export function generate(
         map,
         treeChance
     );
+
+    map.evaluateSpawn();
 
     return map;
 }
