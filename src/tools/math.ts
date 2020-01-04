@@ -7,12 +7,12 @@ export function evaluateChance(chance: number): boolean {
     return chance > getRandomInt(0, 1000)
 }
 
-export function drawCircleSpot(
-    cx, cy, r, a,
+export function evaluateCircleSpot(
+    cx, cy, r, theta,
     type: CircleTypes
 ): Point {
-    const x = Math.round(cx + (type === CircleTypes.HorizontalEllipse ? 0.5 * r : r) * Math.cos(a));
-    const y = Math.round(cy - (type === CircleTypes.VerticalEllipse ? 0.5 * r : r) * Math.sin(a));
+    const x = Math.round(cx + (type === CircleTypes.HorizontalEllipse ? 0.5 * r : r) * Math.cos(theta));
+    const y = Math.round(cy - (type === CircleTypes.VerticalEllipse ? 0.5 * r : r) * Math.sin(theta));
 
     return {
         x, y
@@ -81,11 +81,14 @@ export function drawCircle(
 ) {
     const spots: Point[] = [];
 
-    // draw circle around
-    for (let angle = 0; angle < 360; angle++) {
+    const PI2 = 2 * Math.PI;
+    const step = PI2 / 20;
 
-        const spot = drawCircleSpot(
-            cx, cy, r, angle,
+    // draw circle around
+    for (let theta = 0; theta < PI2; theta += step) {
+
+        const spot = evaluateCircleSpot(
+            cx, cy, r, theta,
             type
         );
 
