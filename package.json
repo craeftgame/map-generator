@@ -5,8 +5,9 @@
   "main": "./src/test.ts",
   "scripts": {
     "test": "ts-node ./src/test.ts",
-    "postinstall": "tsc -b .",
-    "start": "tsc -b . --watch"
+    "build": "tsc -b .",
+    "postinstall": "npm run build",
+    "start": "npm run build -- --watch"
   },
   "keywords": [
     "cräft",
@@ -15,5 +16,9 @@
     "typescript"
   ],
   "author": "Sebastian Gerske",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/craeftgame/map-generator.git"
+  }
 }
