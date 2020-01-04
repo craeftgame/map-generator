@@ -1,12 +1,12 @@
 import {generateBackdrop} from "./generateBackdrop";
 import {getRandomArrayItem} from "../tools/rand";
-import {TerrainTypes} from "../TerrainTypes";
 import {generatePonds} from "./generatePonds";
 import {generateTrees} from "./generateTrees";
-import Map from "./map";
 import {generateVoid} from "./generateVoid";
+import {TerrainTypes} from "../TerrainTypes";
+import Map from "./map";
 
-export function generate(
+export async function generate(
     {
         height = 30,
         width = 40,
