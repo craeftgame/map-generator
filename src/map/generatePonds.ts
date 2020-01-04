@@ -1,8 +1,16 @@
-import {CircleTypes, TerrainTypes} from "../TerrainTypes";
-import {drawCircle, evaluateChance} from "../tools/math";
-import {getRandomArrayItem, getRandomEnumEntry, getRandomInt} from "../tools/rand";
+import {
+    CircleTypes,
+    TerrainTypes
+} from "../TerrainTypes";
+import {
+    drawCircle,
+    evaluateChance
+} from "../tools/math";
+import {
+    getRandomEnumEntry,
+    getRandomInt
+} from "../tools/rand";
 import Map from "./map";
-import {getRandomObjectEntry} from "../../../engine/src/tools/rand";
 
 export function generatePonds(
     map: Map,
