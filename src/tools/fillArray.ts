@@ -1,11 +1,14 @@
-export function fillArray(array, value, start, end) {
+export function fillArray(
+    array: any[],
+    value: any,
+    start: number = 0,
+    end: number = 0
+) {
     if (!Array.isArray(array)) {
-        throw new TypeError('array is not a Array');
+        throw new TypeError('array is not an Array');
     }
 
     const length = array.length;
-    start = parseInt(start, 10) || 0;
-    end = end === undefined ? length : (parseInt(end, 10) || 0);
 
     let i;
     let l;

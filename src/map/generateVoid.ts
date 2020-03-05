@@ -1,4 +1,3 @@
-import {fillArray} from "../tools/fillArray";
 import Map from "./map";
 import {TerrainTypes} from "../TerrainTypes";
 import {drawLineToSpot} from "../tools/math";
