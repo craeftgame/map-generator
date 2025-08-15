@@ -2,7 +2,7 @@
   "name": "@craeft/map-generator",
   "version": "1.3.0",
   "description": "Cräft! Map Generator",
-  "main": "./src/test.ts",
+  "main": "./dist/test.js",
   "scripts": {
     "prettier": "prettier ./src --write",
     "test": "ts-node ./src/test.ts",
