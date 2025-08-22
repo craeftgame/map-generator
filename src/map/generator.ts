@@ -1,19 +1,19 @@
-import { generateBackdrop } from "./generateBackdrop";
+import { TerrainTypes } from "../TerrainTypes";
 import { getRandomArrayItem } from "../tools/rand";
+import { generateBackdrop } from "./generateBackdrop";
 import { generatePonds } from "./generatePonds";
 import { generateTrees } from "./generateTrees";
 import { generateVoid } from "./generateVoid";
-import { TerrainTypes } from "../TerrainTypes";
 import Map from "./map";
 
-export async function generate({
+export const generate = async ({
   height = 30,
   width = 40,
   treeChance = 5.0,
   pondChance = 4.0,
   pondMin = 0,
   pondMax = 3,
-} = {}) {
+} = {}) => {
   const map = new Map(width, height);
 
   generateBackdrop(
@@ -33,4 +33,4 @@ export async function generate({
   map.evaluateSpawn();
 
   return map;
-}
+};

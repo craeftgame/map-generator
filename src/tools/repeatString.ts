@@ -1,4 +1,4 @@
-export function repeatString(str, count) {
+export const repeatString = (str, count) => {
   let string = String(str);
   // `ToInteger`
   let n = count ? Number(count) : 0;
@@ -21,4 +21,4 @@ export function repeatString(str, count) {
     n >>= 1;
   }
   return result;
-}
+};

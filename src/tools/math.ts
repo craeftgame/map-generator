@@ -1,12 +1,18 @@
-import { getRandomInt } from "./rand";
 import { Point } from "../Interfaces/Point";
 import { CircleTypes, TerrainTypes } from "../TerrainTypes";
+import { getRandomInt } from "./rand";
 
-export function evaluateChance(chance: number): boolean {
+export const evaluateChance = (chance: number): boolean => {
   return chance > getRandomInt(0, 1000);
-}
+};
 
-export function evaluateCircleSpot(cx, cy, r, theta, type: CircleTypes): Point {
+export const evaluateCircleSpot = (
+  cx,
+  cy,
+  r,
+  theta,
+  type: CircleTypes,
+): Point => {
   const x = Math.round(
     cx +
       (type === CircleTypes.HorizontalEllipse ? 0.5 * r : r) * Math.cos(theta),
@@ -19,26 +25,26 @@ export function evaluateCircleSpot(cx, cy, r, theta, type: CircleTypes): Point {
     x,
     y,
   };
-}
+};
 
-function intercept(point, slope: number | null) {
+const intercept = (point, slope: number | null) => {
   if (slope === null) {
     // vertical line
     return point.x;
   }
 
   return point.y - slope * point.x;
-}
+};
 
-function slope(a: Point, b: Point): number | null {
+const slope = (a: Point, b: Point): number | null => {
   if (a.x === b.x) {
     return null;
   }
 
   return (b.y - a.y) / (b.x - a.x);
-}
+};
 
-export function drawLineToSpot(
+export const drawLineToSpot = (
   map,
   // start
   sx,
@@ -47,7 +53,7 @@ export function drawLineToSpot(
   ex,
   ey,
   type: TerrainTypes,
-) {
+) => {
   const start = { x: sx, y: sy };
   const end = { x: ex, y: ey };
 
@@ -64,9 +70,9 @@ export function drawLineToSpot(
       map.safeWrite(start.x, y, type);
     }
   }
-}
+};
 
-export function drawCircle(
+export const drawCircle = (
   map,
   cx,
   cy,
@@ -74,7 +80,7 @@ export function drawCircle(
   terrain: TerrainTypes,
   type: CircleTypes,
   fill: boolean,
-) {
+) => {
   const spots: Point[] = [];
 
   const PI2 = 2 * Math.PI;
@@ -100,4 +106,4 @@ export function drawCircle(
       }
     }
   }
-}
+};

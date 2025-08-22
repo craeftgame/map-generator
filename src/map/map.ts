@@ -1,15 +1,15 @@
-import { repeatString } from "../tools/repeatString";
-import { TerrainTypes } from "../TerrainTypes";
 import { Point, PointWithDirection } from "../Interfaces/Point";
+import { TerrainTypes } from "../TerrainTypes";
 import { getRandomInt } from "../tools/rand";
+import { repeatString } from "../tools/repeatString";
 
-interface fu {
+interface MapPoint {
   terrain: TerrainTypes;
   playerIsHere?: boolean;
 }
 
 export default class Map {
-  private data: fu[][] = [];
+  private data: MapPoint[][] = [];
 
   public height;
   public width;
@@ -34,7 +34,7 @@ export default class Map {
 
   public evaluateSpawn(): Point {
     // todo add random spawn
-    let spawn: fu;
+    let spawn: MapPoint;
 
     do {
       this.location = {
@@ -64,7 +64,7 @@ export default class Map {
     console.log(b);
   }
 
-  public getAt(x, y): fu {
+  public getAt(x, y): MapPoint {
     return this.data[y][x];
   }
 
@@ -139,14 +139,14 @@ export default class Map {
       yh = size;
     }
 
-    const viewport: fu[][] = [];
+    const viewport: MapPoint[][] = [];
     let yy = 0;
 
     for (let y = yl; y < yh; y++) {
       viewport[yy] = [];
 
       for (let x = xl; x < xh; x++) {
-        const mapEntry: fu = Object.assign({}, this.getAt(x, y));
+        const mapEntry: MapPoint = Object.assign({}, this.getAt(x, y));
 
         if (this.location.x === x && this.location.y === y) {
           mapEntry.playerIsHere = true;
@@ -175,7 +175,7 @@ export default class Map {
     }
 
     if (!this.data[y][x]) {
-      this.data[y][x] = {} as fu;
+      this.data[y][x] = {} as MapPoint;
     }
 
     // nothing can overwrite the void

@@ -1,9 +1,9 @@
-export function fillArray(
-  array: any[],
-  value: any,
+export const fillArray = (
+  array: (string | number)[],
+  value: string | number,
   start: number = 0,
   end: number = 0,
-) {
+) => {
   if (!Array.isArray(array)) {
     throw new TypeError("array is not an Array");
   }
@@ -30,4 +30,4 @@ export function fillArray(
   }
 
   return array;
-}
+};
