@@ -68,7 +68,7 @@ export default class Map {
     return this.data[y][x];
   }
 
-  public move(direction): {
+  public move(direction: string): {
     hasMoved: boolean;
     terrain?: TerrainTypes;
   } {
@@ -159,7 +159,7 @@ export default class Map {
     }
 
     if (viewport[0].length !== h * 2 || viewport.length !== h * 2) {
-      console.error("fu");
+      console.error("unexpected viewport length");
     }
 
     return viewport;
