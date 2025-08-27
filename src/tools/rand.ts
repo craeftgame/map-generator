@@ -1,9 +1,27 @@
+import crypto from "crypto";
+
+export const secureRandom = (): number => {
+  let cryptoObj: Crypto;
+
+  if (typeof window !== "undefined") {
+    cryptoObj = window.crypto || (window as any).msCrypto;
+  } else {
+    cryptoObj = crypto as Crypto;
+  }
+
+  const array = new Uint32Array(1);
+  cryptoObj.getRandomValues(array);
+
+  // Convert 32-bit unsigned int to a float in [0, 1)
+  return array[0] / (0xffffffff + 1);
+};
+
 export const getRandomInt = (min, max): number => {
   min = Math.ceil(min);
   max = Math.floor(max);
 
   //The maximum is exclusive and the minimum is inclusive
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(secureRandom() * (max - min + 1)) + min;
 };
 
 export const getRandomArrayItem = ({ array, start = 0 }) => {
