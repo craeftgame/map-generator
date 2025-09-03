@@ -4,7 +4,7 @@ export const secureRandom = (): number => {
   let cryptoObj: Crypto;
 
   if (typeof window !== "undefined") {
-    cryptoObj = window.crypto || (window as any).msCrypto;
+    cryptoObj = window.crypto ?? (window as any).msCrypto;
   } else {
     cryptoObj = crypto as Crypto;
   }
