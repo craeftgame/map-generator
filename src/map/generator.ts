@@ -19,7 +19,7 @@ export const generate = async ({
   generateBackdrop(
     map,
     getRandomArrayItem({
-      // todo: add water here to have a water map
+      // TODO: add water here to have a water map
       array: [TerrainTypes.Earth],
     }),
   );

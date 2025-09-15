@@ -24,7 +24,7 @@ export default class Map {
     this.width = width;
     this.height = height;
 
-    // todo: move this to player?
+    // TODO: move this to player?
     this.location = {
       x: 0,
       y: 0,
@@ -33,7 +33,7 @@ export default class Map {
   }
 
   public evaluateSpawn(): Point {
-    // todo add random spawn
+    // TODO: add random spawn
     let spawn: MapPoint;
 
     do {
