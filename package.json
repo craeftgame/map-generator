@@ -1,6 +1,6 @@
 {
   "name": "@craeft/map-generator",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "Cräft! Map Generator",
   "main": "./dist/test.js",
   "scripts": {
