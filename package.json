@@ -24,7 +24,7 @@
   },
   "packageManager": "yarn@4.9.4",
   "devDependencies": {
-    "@types/node": "^24.10.0",
+    "@types/node": "^24.10.1",
     "prettier": "^3.7.3",
     "ts-node": "^10.9.2"
   },
